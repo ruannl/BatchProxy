@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using System.Web.Routing;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(BatchProxy.Startup))]
@@ -9,7 +10,7 @@ namespace BatchProxy
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+           
         }
     }
 }
