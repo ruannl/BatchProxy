@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace BatchProxy.Models
+﻿namespace BatchProxy.Models
 {
     // Models returned by MeController actions.
     public class GetViewModel
