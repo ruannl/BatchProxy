@@ -1,7 +1,58 @@
-﻿@section SPAViews {
-    @Html.Partial("_Home")
-}
-@section Scripts{
-    @Scripts.Render("~/bundles/knockout")
-    @Scripts.Render("~/bundles/app")
-}
+﻿<div ng-controller="HomeCtrl">
+    <div class="row" style="padding-top: 35px;" class="text-left">
+        
+        <div class="col-xs-5">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon3">Source</span>
+                <input type="text" class="form-control" id="source-path" auto-complete items="{{model.source.directories}}" ng-model="model.source.input">
+            </div>
+            <h2>Directories</h2>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="folder in model.source.directories track by $index">
+                        {{folder}}
+                    </div>
+                </div>
+            </div>
+            <h2>Files</h2>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="file in model.source.files track by $index">
+                        {{file}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-5">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon4">Desitination</span>
+                <input type="text" class="form-control" id="destination-path" ng-model="model.destination.input">
+            </div>
+            <h2>Directories</h2>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="folder in model.destination.directories track by $index">
+                        {{folder}}
+                    </div>
+                </div>
+            </div>
+            <h2>Files</h2>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div ng-repeat="file in model.destination.files track by $index">
+                        {{file}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-2">
+            <div class="input-group">
+               <button type="button" class="btn btn-default" ng-disabled="!controller.addBatchEnabled()" ng-click="controller.addBatch()"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Batch</button>
+                @*<span class="glyphicon glyphicon-play"></span><span style="font-weight: bold">&nbsp; Start</span>*@
+            </div>
+        </div>
+    </div>
+</div>
+
